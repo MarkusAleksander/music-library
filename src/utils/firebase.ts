@@ -2,7 +2,7 @@
  * * Prepare connection to Firebase
  */
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getDatabase, connectDatabaseEmulator } from "firebase/database";
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -19,5 +19,11 @@ const app = initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 const firebaseDb = getDatabase(app);
+
+// * Connect to database emulator when working locally
+if (window.location.hostname === "localhost") {
+  // Point to the RTDB emulator running on localhost.
+  connectDatabaseEmulator(firebaseDb, "localhost", 9000);
+}
 
 export default firebaseDb;
