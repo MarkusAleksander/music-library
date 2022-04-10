@@ -1,7 +1,6 @@
+import AppHeader from "./components/AppHeader/AppHeader";
 import Footer from "./components/UI/Footer/Footer";
-import Header from "./components/UI/Header/Header";
-import Navigation from "./components/UI/Navigation/Navigation";
-import Section from "./components/UI/Section/Section";
+import Paragraph from "./components/UI/Typography/Paragraph";
 
 /**
  * * App wrapper
@@ -9,16 +8,10 @@ import Section from "./components/UI/Section/Section";
 const App = () => {
   return (
     <div className="App">
-      <Header>
-        <Navigation>
-          <ul></ul>
-        </Navigation>
-      </Header>
-      <Section>
-        <p>Content</p>
-      </Section>
+      <AppHeader />
+
       <Footer>
-        <p>Footer</p>
+        <Paragraph>Footer</Paragraph>
       </Footer>
     </div>
   );

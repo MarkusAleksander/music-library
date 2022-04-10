@@ -1,8 +1,14 @@
+import { twMerge } from "tailwind-merge";
+
 /**
  * * Navigation wrapping component
  */
-const Navigation = ({ children }: { children: React.ReactNode }) => (
-  <nav>{children}</nav>
-);
+const Navigation = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <nav className={twMerge(``, className ?? "")}>{children}</nav>;
 
 export default Navigation;
