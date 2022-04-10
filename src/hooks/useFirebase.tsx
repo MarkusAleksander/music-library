@@ -1,8 +1,11 @@
 import { ref, set, get, child, push, update, remove } from "firebase/database";
 import firebaseDb from "../utils/firebase";
 
-type FirebaseDBNodeType = `albums` | `artists`;
+type FirebaseDBNodeType = `albums` | `artists` | `users`;
 
+/**
+ * Firebase connection functions
+ */
 const useFirebase = () => {
   /**
    * Generate a new node with a given key
