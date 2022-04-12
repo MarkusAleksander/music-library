@@ -4,11 +4,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import Auth0Provider from "./utils/Auth0/Auth0Provider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <Auth0Provider
+        domain={process.env.REACT_APP_AUTH0_SPOTIFY_DOMAIN ?? ""}
+        clientId={process.env.REACT_APP_AUTH0_SPOTIFY_CLIENTID ?? ""}
+        redirectUri={`${window.location.protocol}//${window.location.host}/${process.env.REACT_APP_AUTH0_SPOTIFY_CALLBACK_URL}`}
+        responseType={`token`}
+        scope={`user-library-read`}
+      >
+        <App />
+      </Auth0Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
