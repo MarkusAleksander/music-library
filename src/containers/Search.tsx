@@ -13,9 +13,6 @@ const Search = () => (
         <Heading level={2}>Search Spotify</Heading>
       </Hero>
     </Section>
-    <Section>
-      <p>Search</p>
-    </Section>
   </>
 );
 
