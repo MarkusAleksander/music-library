@@ -1,29 +1,48 @@
 import Header from "../UI/Header/Header";
 import Navigation from "../UI/Navigation/Navigation";
-import { NavLink } from "react-router-dom";
 import useAuth0 from "../../utils/Auth0/useAuth0";
 import LogoutBtn from "../LogoutBtn/LogoutBtn";
 import LoginBtn from "../LoginBtn/LoginBtn";
+import NavItem from "../UI/NavItem/NavItem";
+
+const HeaderLinkStyle = `bg-emerald-500 h-full text-white font-semibold text-center flex items-center justify-center min-w-[24px] text-sm p-4 border-b-4 border-emerald-500 hover:border-white`;
 
 const AppHeader = () => {
   const { isAuthenticated } = useAuth0();
-  console.log("[Appheader] Rendering");
   return (
-    <Header>
+    <Header className="flex justify-between items-stretch bg-slate-100">
       <Navigation>
-        <ul role="menu">
+        <ul role="menu" className="flex items-stretch h-full">
           <li role="menuitem">
-            <NavLink to="/">Search</NavLink>
+            {isAuthenticated ? (
+              <LogoutBtn className={HeaderLinkStyle} />
+            ) : (
+              <LoginBtn className={HeaderLinkStyle} />
+            )}
           </li>
-          <li role="menuitem">
-            <NavLink to="/artists">Artists</NavLink>
-          </li>
-          <li role="menuitem">
-            <NavLink to="/albums">Albums</NavLink>
-          </li>
-          <li>{isAuthenticated ? <LogoutBtn /> : <LoginBtn />}</li>
         </ul>
       </Navigation>
+      {isAuthenticated && (
+        <Navigation>
+          <ul role="menu" className="flex items-stretch h-full">
+            <li role="menuitem">
+              <NavItem className={HeaderLinkStyle} to="/">
+                Search
+              </NavItem>
+            </li>
+            <li role="menuitem">
+              <NavItem className={HeaderLinkStyle} to="/artists">
+                Artists
+              </NavItem>
+            </li>
+            <li role="menuitem">
+              <NavItem className={HeaderLinkStyle} to="/albums">
+                Albums
+              </NavItem>
+            </li>
+          </ul>
+        </Navigation>
+      )}
     </Header>
   );
 };
