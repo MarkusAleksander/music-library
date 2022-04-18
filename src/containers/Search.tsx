@@ -1,26 +1,12 @@
-import Hero from "../components/UI/Hero/Hero";
+import ContainerHero from "../components/ContainerHero/ContainerHero";
 import Section from "../components/UI/Section/Section";
-import Heading from "../components/UI/Typography/Heading";
 
 /**
  * * Container for Searching Spotify
  */
 const Search = () => (
   <>
-    <Hero>
-      <Heading
-        level={1}
-        className="text-white font-bold text-7xl tracking-wide"
-      >
-        Search
-      </Heading>
-      <Heading
-        level={2}
-        className="text-white font-bold text-4xl mt-4  tracking-wide"
-      >
-        Search Spotify
-      </Heading>
-    </Hero>
+    <ContainerHero title={"Search"} subtitle={"Search Spotify"} />
     <Section>
       <p>Content</p>
     </Section>

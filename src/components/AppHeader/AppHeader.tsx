@@ -10,7 +10,7 @@ const HeaderLinkStyle = `bg-emerald-500 h-full text-white font-semibold text-cen
 const AppHeader = () => {
   const { isAuthenticated } = useAuth0();
   return (
-    <Header className="flex justify-between items-stretch bg-slate-100">
+    <Header className="flex justify-between items-stretch">
       <Navigation>
         <ul role="menu" className="flex items-stretch h-full">
           <li role="menuitem">
